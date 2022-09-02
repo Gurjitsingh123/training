@@ -2,3 +2,5 @@ exception case 1 :divident must not be zero
 exception case 2 :enterd credientials are wrong
 exception case 1 :divident must not be zero 
 exception case 2 :enterd credientials are wrong
+exception case 1 :divident must not be zero 
+exception case 2 :enterd credientials are wrong

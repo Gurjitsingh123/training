@@ -8,8 +8,11 @@ li3=[]
 li4=[]
 li5=[]
 li6=[]
+li7=[]
+li8=[]
 dict={}
 dict2={}
+s=int()
 mydb = mysql.connector.connect(host="localhost",user="root",password="",database="training")
 mycursor=mydb.cursor()
 mycursor.execute("select uXS,uS,uM,uL,uXL,uXXL from products")
@@ -27,9 +30,13 @@ for k in li3:
 for l in li4:
     l=int(l)
     li6.append(l)  
-    
-for m,n in zip(li5,li6):
+for p in range(len(li5)):
+    if p >= 0 : 
+        if li5[p]==li5[p-1]:
+            s=li6[p]+li6[p-1]   
+        else:
+            li7.append(li5[p])
+            li8.append(s)                            
+for m,n in zip(li7,li8):
     dict[m]=n
-    if dict[m] in dict:
-        print("exception")
 print(dict)
