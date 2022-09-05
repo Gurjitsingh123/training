@@ -24,19 +24,20 @@ for j in mycursor1:
     li1.append(j)
 li3=(list(map(lambda x:float(x),str(li).replace('[','').replace(']','').replace(')','').replace('(','').replace('}','').replace('{','').split(','))))
 li4=(list(map(lambda x:float(x),str(li1).replace('[','').replace(']','').replace(')','').replace('(','').replace('}','').replace('{','').split(','))))
-for k in li3:
-    k=int(k)
-    li5.append(k)
-for l in li4:
-    l=int(l)
-    li6.append(l)  
-for p in range(len(li5)):
-    if p >= 0 : 
-        if li5[p]==li5[p-1]:
-            s=li6[p]+li6[p-1]   
-        else:
-            li7.append(li5[p])
-            li8.append(s)                            
-for m,n in zip(li7,li8):
-    dict[m]=n
-print(dict)
+for i in li3:
+  li5.append(int(i))
+for j in li4:
+  li6.append(int(j))
+try:
+   mycursor.execute("CREATE TABLE IF NOT EXISTS products_analysis (products_size INT, products_sold INT );")
+   print("table created")
+   print(li5,li6)
+   mydb.commit()
+   for k in range(len(li5)):
+      mycursor.execute("INSERT INTO `products_analysis`(`products_size`, `products_sold`) VALUES ('{}','{}')".format(li5[k],li6[k]))
+      mydb.commit()
+   print("sucessfull")
+
+except:
+   print("nops")
+mydb.close()
