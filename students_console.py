@@ -44,7 +44,6 @@ def update_student():
         new_age=int(input("enter new age:"))
         new_height=str(input("enter new height: "))
         stmt=("UPDATE  student SET class='{}',age={},height='{}' WHERE name='{}'").format(new_class,new_age,new_height,name)
-        print(stmt)
         mycursor.execute(stmt)
         mydb.commit()
         print("data updated sucessfully")
